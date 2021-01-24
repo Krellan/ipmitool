@@ -642,10 +642,12 @@ sdr_convert_sensor_value_to_raw(struct sdr_record_full_sensor * sensor,
 	}
 	
 	/* Round to integer */
-	if ((result - (int) result) >= .5)
+	if ((result - (int) result) >= .5) {
 		iret = ceil(result);
-	else
+	}
+	else {
 		iret = result;
+	}
 
   /* Return signed or unsigned, based on type of analog byte */
   switch(sensor->cmn.unit.analog) {
